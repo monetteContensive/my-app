@@ -29,7 +29,6 @@ import { DemoTestComponent } from './demo-test/demo-test.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),

@@ -97,12 +97,20 @@ export class HeroService {
   }
 
 
-  getDemo (): Observable<Demo[]> {
-    return this.http.get<Demo[]>(this.demoUrl)
-      .pipe(
-        tap(_ => this.log('fetched demo')),
-        catchError(this.handleError('getDemo', []))
-      );
+  // getDemo (): Observable<Demo[]> {
+  //   return this.http.get(this.demoUrl).subscribe(value =>{}, error => {});
+  //    // return this.http.get(this.demoUrl);
+  //   // return this.http.get<Demo[]>(this.demoUrl)
+  //   //   .pipe(
+  //   //     tap(_ => this.log('fetched demo')),
+  //   //     catchError(this.handleError('getDemo', []))
+  //   //   );
+  // }
+
+  getDemo () {
+    
   }
+
+
 
 }
