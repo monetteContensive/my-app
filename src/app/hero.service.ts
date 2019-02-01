@@ -97,18 +97,23 @@ export class HeroService {
   }
 
 
-  // getDemo (): Observable<Demo[]> {
-  //   return this.http.get(this.demoUrl).subscribe(value =>{}, error => {});
-  //    // return this.http.get(this.demoUrl);
-  //   // return this.http.get<Demo[]>(this.demoUrl)
-  //   //   .pipe(
-  //   //     tap(_ => this.log('fetched demo')),
-  //   //     catchError(this.handleError('getDemo', []))
-  //   //   );
-  // }
+  getDemoList (): Observable<Demo[]> {
+    // return this.http.get(this.demoUrl).subscribe(value =>{}, error => {});
+     // return this.http.get(this.demoUrl)
+    return this.http.get<Demo[]>(this.demoUrl)
+      .pipe(
+        tap(_ => this.log('fetched demo')),
+        catchError(this.handleError('getDemoList', []))
+      );
+  }
 
-  getDemo () {
-    
+
+  getDemo(id: number): Observable<Demo> {
+    const durl = `${this.demoUrl}/${id}`;
+    return this.http.get<Demo>(durl).pipe(
+      tap(_ => this.log(`fetched demo id=${id}`)),
+      catchError(this.handleError<Demo>(`getDemo id=${id}`))
+    );
   }
 
 

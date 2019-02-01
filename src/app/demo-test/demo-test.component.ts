@@ -8,16 +8,17 @@ import { HeroService }  from '../hero.service';
   styleUrls: ['./demo-test.component.scss']
 })
 export class DemoTestComponent implements OnInit {
-  demo: Demo[];
+  demos: Demo[];
+  
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
-    this.getDemo();
+    this.getDemoList();
   }
 
-  getDemo(): void {
-    this.heroService.getDemo()
-      .subscribe(demo => this.demo = demo);
+  getDemoList(): void {
+    this.heroService.getDemoList()
+      .subscribe(demos => this.demos = demos);
   }
 
 }
